@@ -16,12 +16,16 @@ public class Main {
        
        Bovino bovino = new Bovino(4, 23, "", 2, 3, "ativo", 3);
        
-       bovino.setId(2);
-       String tipo = bovino.getTipo();
+       Plantel plantel = new Plantel();
        
-       int idDoBovino = bovino.getId();
-       System.out.println("ID do bovino: " + idDoBovino);
-       System.out.println("Tipo do bovino: " + tipo);
+       plantel.incluirAnimal(bovino);
+              
+       plantel.avaliarAnimal();
+       
+       Animal boi =  plantel.consultarAnimal(4);
 
+       Animal.formatado(boi);
+       
+       
    }
 }

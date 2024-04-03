@@ -68,7 +68,11 @@ public class Animal {
     //=========================Setters=================================//
     public void setId(int id)
     {
-        this.id = id;
+       if(!(id <= 0)){
+            this.id = id;
+       }else {
+            System.out.println("Id invalido!");
+       }
     }
     
     public void setPeso(float peso)
@@ -100,4 +104,14 @@ public class Animal {
     {
         this.comprimento = comprimento;
     }
+    
+    public static void formatado(Animal animal){  
+        System.out.println("Tipo: " + animal.getTipo());
+        System.out.println("Altura: " + animal.getAltura());
+        System.out.println("Comprimento: " + animal.getComprimento());
+        System.out.println("Largura: " + animal.getLargura());
+        System.out.println("Peso: " + animal.getPeso());
+        System.out.println("Status: " + animal.getStatus());        
+    }
+
 }
