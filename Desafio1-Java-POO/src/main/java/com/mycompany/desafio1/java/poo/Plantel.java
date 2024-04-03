@@ -10,7 +10,7 @@ public class Plantel {
     
     public void incluirAnimal(Animal animal)
     {
-                    this.plantel[0] = animal;     
+        this.plantel[0] = animal;     
     }
     
     public Animal consultarAnimal(int id)
@@ -20,6 +20,7 @@ public class Plantel {
                 return animal;
             }
         }
+        System.out.println("Id não encontrado");
         return null;
     }
       

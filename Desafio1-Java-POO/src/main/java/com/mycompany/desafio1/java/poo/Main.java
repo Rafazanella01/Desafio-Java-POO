@@ -14,7 +14,7 @@ public class Main {
         
        //Animal animal = new Animal(1, 23, "boi", 2, 3, "ativo", 2);
        
-       Bovino bovino = new Bovino(4, 23, "", 2, 3, "ativo", 3);
+       Bovino bovino = new Bovino(4, 23, "", 2, 3, "Ativo", 3);
        
        Plantel plantel = new Plantel();
        
@@ -25,7 +25,5 @@ public class Main {
        Animal boi =  plantel.consultarAnimal(4);
 
        Animal.formatado(boi);
-       
-       
    }
 }
