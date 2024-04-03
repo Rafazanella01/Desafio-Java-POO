@@ -97,7 +97,13 @@ public class Animal {
         
     public void setStatus(String status)
     {
-         this.status = status;
+        String st = status.toLowerCase();
+        
+        if(st == "ativo" || st == "vendido" || st == "perdido"){
+            this.status = status;
+        }else{
+            System.out.println("Status invalido");
+        }
     }
          
     public void setComprimento(float comprimento)

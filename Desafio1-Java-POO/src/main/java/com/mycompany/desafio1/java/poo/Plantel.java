@@ -10,7 +10,7 @@ public class Plantel {
     
     public void incluirAnimal(Animal animal)
     {
-        this.plantel[0] = animal;
+                    this.plantel[0] = animal;     
     }
     
     public Animal consultarAnimal(int id)
