@@ -6,11 +6,17 @@ import java.util.Scanner;
  */
 public class Plantel {
     private Animal[] plantel = new Animal[100];
-      
+    private int proximoIndice = 0;  
     
     public void incluirAnimal(Animal animal)
     {
-        this.plantel[0] = animal;     
+        if (proximoIndice < plantel.length) {
+            this.plantel[proximoIndice] = animal;
+            proximoIndice++;
+            System.out.println("Animal adicionado com sucesso!");
+        } else {
+            System.out.println("Não há espaço para adicionar mais animais.");
+        }
     }
     
     public Animal consultarAnimal(int id)
@@ -97,12 +103,22 @@ public class Plantel {
         
     public void registrarVendaAnimal(int id)
     {
-        
+         for(Animal animal : plantel){
+            if(animal != null && animal.getId() == id){
+                animal.setStatus("vendido");
+            }
+        }
+        //System.out.println("Id nao encontrado");
     }
     
     public void registrarPerdaAnimal(int id)
     {
-        
+        for(Animal animal : plantel){
+            if(animal != null && animal.getId() == id){
+                animal.setStatus("perdido");
+            }
+        }
+        //System.out.println("Id nao encontrado");
     }
      
     public void relatorioAnimaisPorTipo(int id)

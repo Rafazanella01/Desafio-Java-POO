@@ -14,15 +14,18 @@ public class Main {
         
        //Animal animal = new Animal(1, 23, "boi", 2, 3, "ativo", 2);
        
-       Bovino bovino = new Bovino(4, 23, "", 2, 3, "Ativo", 3);
+       Bovino bovino = new Bovino(1, 23, "", 2, 3, "Ativo", 3);
        
        Plantel plantel = new Plantel();
-       
+      
        plantel.incluirAnimal(bovino);
-              
-       plantel.avaliarAnimal();
        
-       Animal boi =  plantel.consultarAnimal(4);
+       plantel.registrarVendaAnimal(1);
+       plantel.registrarPerdaAnimal(1);
+              
+       //plantel.avaliarAnimal();
+              
+       Animal boi =  plantel.consultarAnimal(1);
 
        Animal.formatado(boi);
    }
