@@ -4,13 +4,14 @@ import java.util.Scanner;
  *
  * @author rafaz
  */
+
 public class Plantel {
     private Animal[] plantel = new Animal[100];
     private int proximoIndice = 0;  
     
-    public void incluirAnimal(Animal animal)
-    {
+    public void incluirAnimal(int id, float peso, String tipo, float altura, float largura, String status, float comprimento){
         if (proximoIndice < plantel.length) {
+            Animal animal = new Animal(id, peso, tipo, altura, largura, status, comprimento);
             this.plantel[proximoIndice] = animal;
             proximoIndice++;
             System.out.println("Animal adicionado com sucesso!");
@@ -101,39 +102,72 @@ public class Plantel {
         return null;
     }
         
-    public void registrarVendaAnimal(int id)
+    public boolean registrarVendaAnimal(int id)
     {
-         for(Animal animal : plantel){
-            if(animal != null && animal.getId() == id){
-                animal.setStatus("vendido");
+        for (Animal animal : plantel) {
+            if (animal != null && animal.getId() == id) {
+              animal.setStatus("vendido");
+              System.out.println("Animal vendido com sucesso!");
+              return true;
             }
         }
-        //System.out.println("Id nao encontrado");
+          System.out.println("Animal com ID " + id + " não encontrado.");
+          return false; 
     }
     
-    public void registrarPerdaAnimal(int id)
+    public boolean registrarPerdaAnimal(int id)
     {
-        for(Animal animal : plantel){
-            if(animal != null && animal.getId() == id){
-                animal.setStatus("perdido");
+         for (Animal animal : plantel) {
+            if (animal != null && animal.getId() == id) {
+              animal.setStatus("perdido");
+              System.out.println("Animal Perdido!");
+              return true;
             }
         }
-        //System.out.println("Id nao encontrado");
+          System.out.println("Animal com ID " + id + " não encontrado.");
+          return false; 
     }
      
-    public void relatorioAnimaisPorTipo(int id)
-    {
-        
+    public void relatorioAnimaisPorTipo() {
+        // Contadores para cada tipo de animal
+        int totalBovinos = 0;
+        int totalEquinos = 0;
+        int totalSuinos = 0;
+
+        // Contagem de animais por tipo
+        for (Animal animal : plantel) {
+            if (animal instanceof Bovino) {
+                totalBovinos++;
+            } else if (animal instanceof Equino) {
+                totalEquinos++;
+            } else if (animal instanceof Suino) {
+                totalSuinos++;
+            }
+        }
+
+        // Impressão do relatório
+        System.out.println("Relatorio de Animais por Tipo:");
+        System.out.println("Bovinos: " + totalBovinos);
+        System.out.println("Equinos: " + totalEquinos);
+        System.out.println("Suínos: " + totalSuinos);
     }
-      
-    public void relatorioVendas(int id)
-    {
-        
+
+    public void relatorioVendas() {
+        System.out.println("Relatorio de Vendas:");
+        for (Animal animal : plantel) {
+            if (animal != null && animal.getStatus().equalsIgnoreCase("vendido")) {
+                Animal.formatado(animal);
+            }
+        }
     }
-    
-    public void relatorioPerdas(int id)
-    {
-        
+
+    public void relatorioPerdas() {
+        System.out.println("Relatorio de Perdas:");
+        for (Animal animal : plantel) {
+            if (animal != null && animal.getStatus().equalsIgnoreCase("perdido")) {
+                Animal.formatado(animal);
+            }
+        }
     }
-    
-}
+
+    }
