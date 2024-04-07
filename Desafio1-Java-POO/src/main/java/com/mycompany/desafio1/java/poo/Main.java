@@ -40,7 +40,7 @@ public class Main {
                 System.out.print("Digite o peso do animal: ");
                 float peso = scanner.nextFloat();
                 scanner.nextLine();
-                System.out.print("Digite o tipo do animal: ");
+                System.out.print("Digite o tipo do animal (Bovino, Suino, Equino): ");
                 String tipo = scanner.nextLine();
                 System.out.print("Digite a altura do animal: ");
                 float altura = scanner.nextFloat();
@@ -48,7 +48,7 @@ public class Main {
                 System.out.print("Digite a largura do animal: ");
                 float largura = scanner.nextFloat();
                 scanner.nextLine(); 
-                System.out.print("Digite o status do animal: ");
+                System.out.print("Digite o status do animal (Ativo, Vendido, Perdido): ");
                 String status = scanner.nextLine();
                 System.out.print("Digite o comprimento do animal: ");
                 float comprimento = scanner.nextFloat();
@@ -58,23 +58,18 @@ public class Main {
                 
                 break;
             case 2:
-                // Consultar Animal
                 System.out.println("\n=== Consultar Animal ===");
                 System.out.println("Digite o ID do animal: ");
                 int idConsultar = scanner.nextInt();
                 scanner.nextLine();
-                Animal animalConsultado = plantel.consultarAnimal(idConsultar);
-                if (animalConsultado != null) {
-                    Animal.formatado(animalConsultado);
-                }
+                Animal animalConsultado = plantel.consultarAnimal(idConsultar);            
+                Animal.formatado(animalConsultado);
                 break;
             case 3:
-                // Avaliar Animal
                 System.out.println("\n=== Avaliar Animal ===");
                 plantel.avaliarAnimal();
                 break;
             case 4:
-                // Registrar Venda de Animal
                 System.out.println("\n=== Registrar Venda de Animal ===");
                 System.out.println("Digite o ID do animal vendido: ");
                 int idVenda = scanner.nextInt();
@@ -82,7 +77,6 @@ public class Main {
                 plantel.registrarVendaAnimal(idVenda);
                 break;
             case 5:
-                // Registrar Perda de Animal
                 System.out.println("\n=== Registrar Perda de Animal ===");
                 System.out.println("Digite o ID do animal perdido: ");
                 int idPerda = scanner.nextInt();
@@ -90,17 +84,14 @@ public class Main {
                 plantel.registrarPerdaAnimal(idPerda);
                 break;
             case 6:
-                // Relatório de Animais por Tipo
                 System.out.println("\n=== Relatorio de Animais por Tipo ===");
                 plantel.relatorioAnimaisPorTipo();
                 break;
             case 7:
-                // Relatório de Vendas
                 System.out.println("\n=== Relatorio de Vendas ===");
                 plantel.relatorioVendas();
                 break;
             case 8:
-                // Relatório de Perdas
                 System.out.println("\n=== Relatorio de Perdas ===");
                 plantel.relatorioPerdas();
                 break;

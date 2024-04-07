@@ -9,10 +9,25 @@ public class Plantel {
     private Animal[] plantel = new Animal[100];
     private int proximoIndice = 0;  
     
-    public void incluirAnimal(int id, float peso, String tipo, float altura, float largura, String status, float comprimento){
+     public void incluirAnimal(int id, float peso, String tipo, float altura, float largura, String status, float comprimento) {
         if (proximoIndice < plantel.length) {
             Animal animal = new Animal(id, peso, tipo, altura, largura, status, comprimento);
-            this.plantel[proximoIndice] = animal;
+
+            switch (tipo.toLowerCase()) {
+                case "bovino":
+                    plantel[proximoIndice] = new Bovino(id, peso, tipo, altura, largura, status, comprimento);
+                    break;
+                case "equino":
+                    plantel[proximoIndice] = new Equino(id, peso, tipo, altura, largura, status, comprimento);
+                    break;
+                case "suino":
+                    plantel[proximoIndice] = new Suino(id, peso, tipo, altura, largura, status, comprimento);
+                    break;
+                default:
+                    System.out.println("Tipo de animal inválido.");
+                    return;
+            }
+
             proximoIndice++;
             System.out.println("Animal adicionado com sucesso!");
         } else {
@@ -27,7 +42,7 @@ public class Plantel {
                 return animal;
             }
         }
-        System.out.println("Id não encontrado");
+        System.out.println("Id nao encontrado");
         return null;
     }
       
@@ -129,12 +144,10 @@ public class Plantel {
     }
      
     public void relatorioAnimaisPorTipo() {
-        // Contadores para cada tipo de animal
         int totalBovinos = 0;
         int totalEquinos = 0;
         int totalSuinos = 0;
 
-        // Contagem de animais por tipo
         for (Animal animal : plantel) {
             if (animal instanceof Bovino) {
                 totalBovinos++;
@@ -145,11 +158,10 @@ public class Plantel {
             }
         }
 
-        // Impressão do relatório
         System.out.println("Relatorio de Animais por Tipo:");
         System.out.println("Bovinos: " + totalBovinos);
         System.out.println("Equinos: " + totalEquinos);
-        System.out.println("Suínos: " + totalSuinos);
+        System.out.println("Suinos: " + totalSuinos);
     }
 
     public void relatorioVendas() {
