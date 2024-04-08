@@ -10,24 +10,33 @@ public class Plantel {
     private int proximoIndice = 0;  
     
      public void incluirAnimal(int id, float peso, String tipo, float altura, float largura, String status, float comprimento) {
+         
+          for (int i = 0; i < proximoIndice; i++) {
+            if (plantel[i] != null && plantel[i].getId() == id) {
+                System.out.println("ID ja existe. Nao eh  possivel adicionar o animal.");
+                return;
+            }
+        }
+          
         if (proximoIndice < plantel.length) {
-            Animal animal = new Animal(id, peso, tipo, altura, largura, status, comprimento);
+            Animal animal;
 
             switch (tipo.toLowerCase()) {
                 case "bovino":
-                    plantel[proximoIndice] = new Bovino(id, peso, tipo, altura, largura, status, comprimento);
+                    animal = new Bovino(id, peso, tipo, altura, largura, status, comprimento);
                     break;
                 case "equino":
-                    plantel[proximoIndice] = new Equino(id, peso, tipo, altura, largura, status, comprimento);
+                    animal = new Equino(id, peso, tipo, altura, largura, status, comprimento);
                     break;
                 case "suino":
-                    plantel[proximoIndice] = new Suino(id, peso, tipo, altura, largura, status, comprimento);
+                    animal = new Suino(id, peso, tipo, altura, largura, status, comprimento);
                     break;
                 default:
                     System.out.println("Tipo de animal inválido.");
                     return;
             }
 
+            plantel[proximoIndice] = animal;
             proximoIndice++;
             System.out.println("Animal adicionado com sucesso!");
         } else {
@@ -35,14 +44,13 @@ public class Plantel {
         }
     }
     
-    public Animal consultarAnimal(int id)
-    {
-        for(Animal animal : plantel){
-            if(animal != null && animal.getId() == id){
+    public Animal consultarAnimal(int id) {
+        for (Animal animal : plantel) {
+            if (animal != null && animal.getId() == id) {
                 return animal;
             }
         }
-        System.out.println("Id nao encontrado");
+
         return null;
     }
       

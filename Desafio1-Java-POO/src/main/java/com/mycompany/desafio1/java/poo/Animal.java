@@ -95,13 +95,12 @@ public class Animal {
         this.largura = largura;
     }
         
-    public void setStatus(String status)
-    {
+    public void setStatus(String status) {
         String st = status.toLowerCase();
-        if(st=="ativo"||st=="vendido"||st=="perdido"){
+        if (st.equals("ativo") || st.equals("vendido") || st.equals("perdido")) {
             this.status = status;
-        }else{
-            System.out.println("Status invalido");
+        } else {
+            System.out.println("Status inválido");
         }
     }
          

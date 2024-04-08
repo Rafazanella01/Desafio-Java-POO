@@ -5,6 +5,8 @@ import com.mycompany.desafio1.java.poo.Equino;
 import com.mycompany.desafio1.java.poo.Suino;
 import com.mycompany.desafio1.java.poo.Plantel;
 import java.util.Scanner;
+import java.util.InputMismatchException;
+
 
 /**
  *
@@ -16,7 +18,9 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     int opcao;
 
+    
     do {
+      try {
         System.out.println("\n====== Menu ======");
         System.out.println("1. Incluir Animal");
         System.out.println("2. Consultar Animal");
@@ -63,7 +67,11 @@ public class Main {
                 int idConsultar = scanner.nextInt();
                 scanner.nextLine();
                 Animal animalConsultado = plantel.consultarAnimal(idConsultar);            
-                Animal.formatado(animalConsultado);
+                if (animalConsultado != null) {
+                    Animal.formatado(animalConsultado);
+                } else {
+                    System.out.println("Id nao encontrado");
+                }
                 break;
             case 3:
                 System.out.println("\n=== Avaliar Animal ===");
@@ -102,6 +110,12 @@ public class Main {
                 System.out.println("Opcao invalida! Por favor, escolha uma opcao valida.");
                 break;
         }
+        } catch (InputMismatchException e) {
+        System.out.println("ENTRADA INVALIDA! Insira novamente");
+        scanner.next();
+        opcao = -1;
+        }
+      
     } while (opcao != 9);
 
     scanner.close();
