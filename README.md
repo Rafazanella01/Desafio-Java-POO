@@ -1,6 +1,12 @@
 # Desafio-Java-POO
 Sistema para o agronegócio - Disciplina de Fábrica de Software - Unisc
 
+Integrantes do grupo:
+Henrique Otávio Tesche
+Rafael Schafer Zanella
+Thiago Schwantes
+
+
 Vamos desenvolver uma aplicação para auxiliar no controle e acompanhamento de animais em uma
 fazenda. O negócio consiste na criação de bovinos, suínos e equinos, ou seja, na fazenda existem
 animais de 3 tipos diferentes.
