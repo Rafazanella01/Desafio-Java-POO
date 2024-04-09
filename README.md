@@ -2,8 +2,9 @@
 Sistema para o agronegócio - Disciplina de Fábrica de Software - Unisc
 
 Integrantes do grupo:
-Henrique Otávio Tesche
-Rafael Schafer Zanella
+
+Henrique Otávio Tesche,
+Rafael Schafer Zanella e
 Thiago Schwantes
 
 
