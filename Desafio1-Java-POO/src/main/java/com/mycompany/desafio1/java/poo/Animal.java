@@ -95,7 +95,8 @@ public class Animal {
         this.largura = largura;
     }
         
-    public void setStatus(String status) {
+    public void setStatus(String status)
+    {
         String st = status.toLowerCase();
         if (st.equals("ativo") || st.equals("vendido") || st.equals("perdido")) {
             this.status = status;
@@ -109,7 +110,8 @@ public class Animal {
         this.comprimento = comprimento;
     }
     
-    public static void formatado(Animal animal){  
+    public static void formatado(Animal animal)
+    {  
         System.out.println("Tipo: " + animal.getTipo());
         System.out.println("Altura: " + animal.getAltura());
         System.out.println("Comprimento: " + animal.getComprimento());
