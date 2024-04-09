@@ -9,7 +9,8 @@ public class Plantel {
     private Animal[] plantel = new Animal[100];
     private int proximoIndice = 0;  
     
-     public void incluirAnimal(int id, float peso, String tipo, float altura, float largura, String status, float comprimento) {
+    public void incluirAnimal(int id, float peso, String tipo, float altura, float largura, String status, float comprimento) 
+    {
          
           for (int i = 0; i < proximoIndice; i++) {
             if (plantel[i] != null && plantel[i].getId() == id) {
@@ -44,7 +45,8 @@ public class Plantel {
         }
     }
     
-    public Animal consultarAnimal(int id) {
+    public Animal consultarAnimal(int id)
+    {
         for (Animal animal : plantel) {
             if (animal != null && animal.getId() == id) {
                 return animal;
@@ -161,7 +163,8 @@ public class Plantel {
           return false; 
     }
      
-    public void relatorioAnimaisPorTipo() {
+    public void relatorioAnimaisPorTipo()
+    {
         int totalBovinos = 0;
         int totalEquinos = 0;
         int totalSuinos = 0;
@@ -182,7 +185,8 @@ public class Plantel {
         System.out.println("Suinos: " + totalSuinos);
     }
 
-    public void relatorioVendas() {
+    public void relatorioVendas()
+    {
         System.out.println("Relatorio de Vendas:");
         for (Animal animal : plantel) {
             if (animal != null && animal.getStatus().equalsIgnoreCase("vendido")) {
@@ -192,7 +196,8 @@ public class Plantel {
         }
     }
 
-    public void relatorioPerdas() {
+    public void relatorioPerdas()
+    {
         System.out.println("Relatorio de Perdas:");
         for (Animal animal : plantel) {
             if (animal != null && animal.getStatus().equalsIgnoreCase("perdido")) {
