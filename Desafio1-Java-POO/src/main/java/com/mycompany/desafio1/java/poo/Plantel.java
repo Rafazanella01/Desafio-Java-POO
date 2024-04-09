@@ -59,7 +59,7 @@ public class Plantel {
        Scanner scanner = new Scanner(System.in);
        System.out.println("Digite o id do animal a ser alterado: ");
        int id = scanner.nextInt();
-        scanner.nextLine();
+       scanner.nextLine();
         
         for(Animal animal : plantel){
             if(animal != null && animal.getId() == id){
@@ -74,36 +74,44 @@ public class Plantel {
                         System.out.println("Digite o nova altura: ");
                         float altura = scanner.nextFloat();
 
-                        if(!(altura < animal.getAltura())){
+                        if(!(altura <= animal.getAltura())){
                            animal.setAltura(altura);
                            System.out.println("Altura alterada com sucesso!");
+                        }else{
+                           System.out.println("Valor invalido, altura nao pode ser menor/igual que o anterior");                           
                         }
                         break;                   
                     case"comprimento":
                         System.out.println("Digite o novo comprimento: ");
                         float comprimento = scanner.nextFloat();
 
-                        if(!(comprimento < animal.getComprimento())){
+                        if(!(comprimento <= animal.getComprimento())){
                            animal.setComprimento(comprimento);
                            System.out.println("comprimento alterado com sucesso!");  
+                        }else{
+                           System.out.println("Valor invalido, comprimento nao pode ser menor/igual que o anterior");                           
                         }
                         break;    
                     case"largura":
                         System.out.println("Digite a nova largura: ");
                         float largura = scanner.nextFloat();
 
-                        if(!(largura < animal.getLargura())){
+                        if(!(largura <= animal.getLargura())){
                            animal.setLargura(largura);
                            System.out.println("largura alterada com sucesso!");  
+                        }else{
+                           System.out.println("Valor invalido, largura nao pode ser menor/igual que o anterior");                           
                         }  
                         break;    
                     case"peso":    
                         System.out.println("Digite o novo peso: ");
                         float peso = scanner.nextFloat();
 
-                        if(!(peso < animal.getPeso())){
+                        if(!(peso <= animal.getPeso())){
                            animal.setPeso(peso);
                            System.out.println("peso alterado com sucesso!");  
+                        }else{
+                           System.out.println("Valor invalido, peso nao pode ser menor/igual que o anterior");                           
                         }   
                         break;    
                     case"status":        
@@ -113,6 +121,8 @@ public class Plantel {
                         if(!status.equals(animal.getStatus())){
                            animal.setStatus(status);
                            System.out.println("Status alterado com sucesso!");  
+                        }else{
+                            System.out.println("Valor invalido, status igual ao anterior");
                         }   
                         break;   
                     default:
@@ -177,6 +187,7 @@ public class Plantel {
         for (Animal animal : plantel) {
             if (animal != null && animal.getStatus().equalsIgnoreCase("vendido")) {
                 Animal.formatado(animal);
+                System.out.println("\n");
             }
         }
     }
@@ -186,6 +197,7 @@ public class Plantel {
         for (Animal animal : plantel) {
             if (animal != null && animal.getStatus().equalsIgnoreCase("perdido")) {
                 Animal.formatado(animal);
+                System.out.println("\n");
             }
         }
     }
